@@ -9,7 +9,6 @@ import Controlador.Consultas;
 import Controlador.Datos;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Héctor
  */
-public class listausuarios extends HttpServlet {
+public class Actualizar2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,7 +29,6 @@ public class listausuarios extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -44,37 +42,7 @@ public class listausuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<link rel=\"stylesheet\" href=\"CSS/TABLES.css\">");
-            out.println("<br><h1> ¡Hola Administrador! </h1>");
-            
-            List<Datos> lista = Consultas.getAllEmpleados();
-            
-            out.println("<table align='center'>");
-            out.println("<tr>"
-                    + "<th> ID </th>"
-                    + "<th> Nombre </th>"
-                    + "<th> Correo </th>"
-                    + "<th> Usuario </th>"
-                    + "<th> Contraseña </th>"
-                    + "<th>  </th>"
-                    + "<th>  </th>"
-                    + "</tr>");
-            for(Datos e:lista){
-                out.println("<tr>"
-                        + "<td>"+e.getId()+"</td>"
-                        + "<td>"+e.getNombre()+"</td>"
-                        + "<td>"+e.getCorreo()+"</td>"
-                        + "<td>"+e.getUsuario()+"</td>"
-                        + "<td>"+e.getContrasena()+"</td>" 
-                        + "<td><a href='Actualizar?id="+e.getId()+"'>Editar</a></td>"
-                        + "<td><a href='Borrar?id1="+e.getId()+" '>Borrar</a></td>"        
-                        + "</tr>");
-            }
-            out.println("</table>");
-            out.close();
-        }
+      
     }
 
     /**
@@ -88,7 +56,34 @@ public class listausuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            int id;
+            String  nombre, correo, usuario, contrasena;
+            id = Integer.parseInt(request.getParameter("id2"));
+            nombre = request.getParameter("nombre2");
+            correo = request.getParameter("correo2");
+            usuario = request.getParameter("usuario2");
+            contrasena= request.getParameter("contrasena2");
+            
+            Datos e = new Datos();
+            e.setId(id);
+            e.setNombre(nombre);
+            e.setCorreo(correo);
+            e.setUsuario(usuario);
+            e.setContrasena(contrasena);
+            
+            int estado = Consultas.Actualizar(e);
+            
+            if (estado>0) {
+                response.sendRedirect("listausuarios");
+            }
+            else{
+                out.println("<h1> No se pudo actualizar. </h1>");
+            }
+            
+            
+        }
     }
 
     /**

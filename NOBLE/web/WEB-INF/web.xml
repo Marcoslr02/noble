@@ -16,6 +16,14 @@
         <servlet-name>listausuarios</servlet-name>
         <servlet-class>Servlets.listausuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Actualizar</servlet-name>
+        <servlet-class>Servlets.Actualizar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Actualizar2</servlet-name>
+        <servlet-class>Servlets.Actualizar2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registrar</servlet-name>
         <url-pattern>/Registrar</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>listausuarios</servlet-name>
         <url-pattern>/listausuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Actualizar</servlet-name>
+        <url-pattern>/Actualizar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Actualizar2</servlet-name>
+        <url-pattern>/Actualizar2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

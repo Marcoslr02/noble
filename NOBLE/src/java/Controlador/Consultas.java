@@ -237,6 +237,62 @@ public static Connection getConnection(){
         return estado;
     }
    
+   //---------------------------------------------------------------------------------------------------------------------
+   public static Datos getUsuarioById(int id){
+        Datos e = new Datos();
+        try {
+            Connection con = Consultas.getConnection();
+            String sql = "select * from usuario where idpersona = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                
+                e.setId(rs.getInt(1));
+                e.setNombre(rs.getString(2));
+                e.setCorreo(rs.getString(3));
+                e.setUsuario(rs.getString(4));
+                e.setContrasena(rs.getString(5));
+                
+            }
+            else{
+                // Mandar error
+            }
+            
+            System.out.println("Lo agrego");
+            con.close();
+        } catch (Exception d) {
+            System.out.println("No lo agrego");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+        }
+        return e;
+    }
+   
+   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+   public static int Actualizar(Datos e){
+        int estado=0;
+        try {
+            Connection con = Consultas.getConnection();
+            String sql = "call actualizar(?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, e.getId());
+            ps.setString(2, e.getNombre());
+            ps.setString(3, e.getCorreo());
+            ps.setString(4, e.getUsuario());
+            ps.setString(5, e.getContrasena());
+            
+            estado = ps.executeUpdate();
+            System.out.println("Lo actualizo");
+            con.close();
+        } catch (Exception d) {
+            System.out.println("No lo agrego");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+        }
+        return estado;
+    }
 
 
     
