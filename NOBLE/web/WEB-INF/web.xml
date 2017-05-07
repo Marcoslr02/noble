@@ -8,6 +8,14 @@
         <servlet-name>Ingresar</servlet-name>
         <servlet-class>Servlets.Ingresar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Borrar</servlet-name>
+        <servlet-class>Servlets.Borrar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listausuarios</servlet-name>
+        <servlet-class>Servlets.listausuarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registrar</servlet-name>
         <url-pattern>/Registrar</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>Ingresar</servlet-name>
         <url-pattern>/Ingresar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Borrar</servlet-name>
+        <url-pattern>/Borrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listausuarios</servlet-name>
+        <url-pattern>/listausuarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
