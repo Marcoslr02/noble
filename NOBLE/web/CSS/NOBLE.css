@@ -1,0 +1,38 @@
+body{
+
+    font-family: sans-serif;
+    color: #06192e;
+}
+.linea{
+    background: #06192e;
+}
+
+
+
+.boton {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.boton1:hover {
+    background-color: white;
+    color: #06192e;
+    border: 2px solid #06192e;
+   
+}
+
+.boton1 {
+    background-color: #06192e;
+    color: white;
+    border: 2px solid white;
+    width: 100%;
+}
