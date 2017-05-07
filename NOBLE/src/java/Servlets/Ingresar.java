@@ -38,7 +38,7 @@ public class Ingresar extends HttpServlet {
         String password = request.getParameter("password");
         Consultas co = new Consultas();
         if(usuario.equals("admin") && password.equals("admin")){
-            response.sendRedirect("usuarios.jsp");
+            response.sendRedirect("listausuarios");
         }
         else{
             if(co.autoidentificacion(usuario, password)){
