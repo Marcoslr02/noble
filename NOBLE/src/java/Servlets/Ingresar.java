@@ -44,7 +44,7 @@ public class Ingresar extends HttpServlet {
             if(co.autoidentificacion(usuario, password)){
                 HttpSession objse = request.getSession(true);
                 objse.setAttribute("usuario", usuario);
-                response.sendRedirect("NobleV1/index.html");
+                response.sendRedirect("usuario.jsp");
             }
             else{
                 response.sendRedirect("login.jsp");
