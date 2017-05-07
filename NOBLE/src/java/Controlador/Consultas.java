@@ -5,14 +5,39 @@
  */
 package Controlador;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author CECyT9
  */
 public class Consultas extends Conexion{
+
+public static Connection getConnection(){
+        Connection con = null;
+        String URL, Username, Password;
+        URL= "jdbc:mysql://localhost:3306/noble";
+        Username = "root";
+        Password = "n0m3l0";
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(URL, Username, Password);
+            System.out.println("Si conecto a la BD");
+        } catch (Exception e) {
+            System.out.println("No se conecto BD");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+        return con;
+    }    
+//----------------------------------------------------------------------------------------------------
+    
     public boolean autoidentificacion(String usuario, String contraseña){
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -161,6 +186,58 @@ public class Consultas extends Conexion{
         }
         return false;
     }
+    //---------------------------------------------------------------------------------------------------------------------------------
+   public static List<Datos> getAllEmpleados(){
+        List<Datos> lista = new ArrayList<>();
+        try {
+            Connection con = Consultas.getConnection();
+            String sql = "select p.idpersona, p.nombre, p.correo, u.nomusuario, u.contrasenia"
+                    + " from dpersona p inner join musuario u on p.idpersona=u.idpersona";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Datos e = new Datos();
+                e.setId(rs.getInt(1));
+                e.setNombre(rs.getString(2));
+                e.setCorreo(rs.getString(3));
+                e.setUsuario(rs.getString(4));
+                e.setContrasena(rs.getString(5));
+                lista.add(e);
+            }
+            
+            System.out.println("Lo agrego");
+            con.close();
+        } catch (Exception d) {
+            System.out.println("No lo agrego");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+        }
+        return lista;
+    }
+   
+   //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+   public static int Borrar(int id){
+        int estado=0;
+        try {
+            Connection con = Consultas.getConnection();
+            String sql = "call eliminar(?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            //e.getId cambia a id
+            ps.setInt(1, id);
+            
+            estado = ps.executeUpdate();
+            System.out.println("Lo borro");
+            con.close();
+        } catch (Exception d) {
+            System.out.println("No lo borro");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+        }
+        return estado;
+    }
+   
+
 
     
 }
