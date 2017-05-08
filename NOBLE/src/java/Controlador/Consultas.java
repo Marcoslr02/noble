@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -294,6 +295,76 @@ public static Connection getConnection(){
         return estado;
     }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+   public boolean validarCorreo(String correo) throws SQLException{
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        
+        try{
+            System.out.println("entro en el try de correo");
+            String consulta = "select * from dpersona where correo= ?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, correo);
+            rs = pst.executeQuery();
+            
+            if(rs.absolute(1)){
+                System.out.println("rs.absolute(1)===true");
+                return true;
+                
+            }
+        }
+        catch(Exception e){
+            System.err.println("Error: " +e);
+            System.out.println("salio del try de correo");
+        }
+        finally{
+            try {
+                if(getConexion() != null)
+                if(pst != null) pst.close(); 
+                if(rs !=null) rs.close();
+            } 
+            catch (Exception e) {
+                System.err.println("Error: " +e);
+            }
 
+        }
+       return false;
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean validarUsuario(String usuario)throws SQLException{
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        
+        try{
+            System.out.println("entro en el try de USUARIO");
+            String consulta = "SELECT * FROM musuario WHERE nomusuario= ?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, usuario);
+            rs = pst.executeQuery();
+            
+            if(rs.absolute(1)){
+                System.out.println("rs.absolute(1)===true");
+                return true;
+                
+            }
+        }
+        catch(Exception e){
+            System.err.println("Error: " +e);
+            System.out.println("salio del try de correo");
+        }
+        finally{
+            try {
+                if(getConexion() != null)
+                if(pst != null) pst.close(); 
+                if(rs !=null) rs.close();
+            } 
+            catch (Exception e) {
+                System.err.println("Error: " +e);
+            }
+
+        }
+       return false;
+        
+    }
     
 }

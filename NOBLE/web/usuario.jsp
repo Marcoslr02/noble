@@ -40,7 +40,7 @@
                     <input type="button" class="boton1 boton"  onClick="location.href = 'registrar.jsp' " value="Configurar cuenta">
                 </td>
                 <td>
-                    <input type="button" class="boton1 boton" onClick="location.href = 'NobleV1/index.html' " value="Jugar capaña">
+                    <input type="button" class="boton1 boton" onClick="location.href = 'juego/index.html' " value="Jugar capaña">
                 </td>
             </tr>
         </table>
