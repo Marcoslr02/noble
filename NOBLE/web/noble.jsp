@@ -35,7 +35,10 @@
             </tr>
             <tr>
                 <th  class="info" colspan="4">
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    <p> Había una vez, un hombre noble y alquimista llamado Alki, Vivía en un hermoso castillo junto a su bella y amada esposa.
+ Alki era reconocido por sus conocimientos y respetado por el rey.
+ A las afueras de ese reino habitaba otro alquimista, pero este era un hombre egoísta y siempre experimentaba con fines malvados y oscuros. Este oscuro alquimista envidiaba y odiaba al noble Alki, así que un día salió de su terrorífico castillo y en la densa y negra noche se introdujo en el castillo del noble sin que nadie lo pudiera notar, con una sustancia transparente contamino una de las copas, esperando a que fuera la del noble...
+</p>
                 </th>
             </tr>
             

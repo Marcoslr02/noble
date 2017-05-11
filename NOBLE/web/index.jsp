@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : index
     Created on : 27/04/2017, 05:19:25 PM
@@ -9,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href="IMAGES/ESCUDOAZUL.png" />
         <link rel="stylesheet" href="CSS/INDEX.css">
         <title>Noble</title>
     </head>
