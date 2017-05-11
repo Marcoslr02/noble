@@ -24,6 +24,14 @@
         <servlet-name>Actualizar2</servlet-name>
         <servlet-class>Servlets.Actualizar2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Configurar</servlet-name>
+        <servlet-class>Servlets.Configurar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Configurar2</servlet-name>
+        <servlet-class>Servlets.Configurar2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registrar</servlet-name>
         <url-pattern>/Registrar</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>Actualizar2</servlet-name>
         <url-pattern>/Actualizar2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Configurar</servlet-name>
+        <url-pattern>/Configurar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Configurar2</servlet-name>
+        <url-pattern>/Configurar2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

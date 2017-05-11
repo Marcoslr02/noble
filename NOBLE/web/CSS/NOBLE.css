@@ -1,5 +1,5 @@
 body{
-
+    background-image: url("IMAGES/Wall.jpg");
     font-family: sans-serif;
     color: #06192e;
 }
@@ -7,6 +7,9 @@ body{
     background: #06192e;
 }
 
+.logout{
+    text-align: left;
+}
 
 
 .boton {

@@ -13,7 +13,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+            
+        <table align="center" style="width: 900px">
+            <tr>
+                <td><a href="Configurar"><img src="IMAGES/config.png" width="50px" height="50px"></a></td>
+                 <td align="right"><img src="IMAGES/logout.png" width="40px" height="40px"></td>
+             </tr>
+            </table>
          <table align="center" style="width: 900px">
+             
             <tr>
                 <th></th>
                 <th  class="titulo" colspan="2">
@@ -35,13 +43,14 @@ Para la mala suerte del malvado y para desgracia del noble la víctima fue su es
             </tr>
             
         </table>
-  
+           
         <table align="center" style="width: 900px;">
             <tr>
                 <td colspan="2">
                     <input type="button" class="boton1 boton" onClick="location.href = 'j/index.html' " value="Jugar capaña">
                 </td>
             </tr>
+            
         </table>
     </body>
 </html>

@@ -114,7 +114,7 @@ function setup(){
     animNob.offY=0;
     animNob.scale = .8;    
 	//animNob.animation.frameDelay = 1;
-    animNob.position.x = 80;
+    animNob.position.x = 420; //80
 	animNob.position.y =500;
     
     

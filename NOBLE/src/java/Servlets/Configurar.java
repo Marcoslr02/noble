@@ -13,12 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Héctor
+ * @author Alumno
  */
-public class Actualizar extends HttpServlet {
+public class Configurar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,17 +44,17 @@ public class Actualizar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<script language=\"JavaScript\" type=\"text/javascript\" src=\"JS/validar.js\"></script>");
             out.println("<link rel=\"stylesheet\" href=\"CSS/Formi.css\">");
-            String esid = request.getParameter("id");
-            int id = Integer.parseInt(esid);
-            Datos e = Consultas.getUsuarioById(id);
+            HttpSession objse = request.getSession(false);
+            String usuario = (String)objse.getAttribute("usuario");
+            Datos e = Consultas.getUsuarioByUsuario(usuario);
             
-            out.println("<form action='Actualizar2' method='post' class='formi' autocomplete='off' onsubmit='return validar();'>");
-            out.println("<h2 class=\"titulo\"> Edita la cuenta de "+ e.getUsuario()+". </h2>");
+            out.println("<form action='Configurar2' method='post' class='formi' autocomplete='off' onsubmit='return validar();'>");
+            out.println("<h2 class=\"titulo\"> Edita tus datos "+e.getUsuario()+".</h2>");
             out.println("<div name=\"contenedor\" id=\"contenedor\" class=\"contenedor\">");
              out.println("<input type=\"text\" name=\"id2\" placeholder=\"ID\" class=\"input-100\" required  maxlength=\"45\"\n" +
 "                           ondrop=\"return false\" ondrag=\"return false\" onpaste=\"return false\" onkeypress=\" return validarnum(event)\" readonly value="+e.getId()+">");
@@ -83,7 +84,7 @@ public class Actualizar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
     }
 
     /**

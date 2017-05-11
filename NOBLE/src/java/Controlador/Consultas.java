@@ -270,6 +270,37 @@ public static Connection getConnection(){
         return e;
     }
    
+   //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   public static Datos getUsuarioByUsuario(String usuario){
+        Datos e = new Datos();
+        try {
+            Connection con = Consultas.getConnection();
+            String sql = "select * from usuario where nomusuario = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                
+                e.setId(rs.getInt(1));
+                e.setNombre(rs.getString(2));
+                e.setCorreo(rs.getString(3));
+                e.setUsuario(rs.getString(4));
+                e.setContrasena(rs.getString(5));
+                
+            }
+            else{
+                // Mandar error
+            }
+            
+            System.out.println("Lo agrego");
+            con.close();
+        } catch (Exception d) {
+            System.out.println("No lo agrego");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+        }
+        return e;
+    }
    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
    
    public static int Actualizar(Datos e){
