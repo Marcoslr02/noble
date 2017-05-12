@@ -15,7 +15,7 @@
     <body>
         
         
-        <table align="center" style="width: 900px">
+        <table class="botones1" align="center" style="width: 900px">
             <tr>
                 <th></th>
                 <th  class="titulo" colspan="2">

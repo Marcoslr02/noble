@@ -11,22 +11,31 @@ body{
 .logout{
     text-align: left;
 }
-.informacion{
+
+.botones1{
+    border-top-left-radius:   7px;
+    border-top-right-radius:   7px;
     background-color: white;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;    
-    padding-left: 0.7%;
-    padding-right: 0.7%;
-    padding-bottom: 0.7%;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    padding-bottom: 0.8%;
+}
+
+.botones2{
+
+    background-color: white;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    padding-bottom: 0.8%;
 }
 
 .botones{
     border-bottom-left-radius:  7px;
     border-bottom-right-radius:  7px;
     background-color: white;
-    padding-left: 0.7%;
-    padding-right: 0.7%;
-    padding-bottom: 0.7%;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    padding-bottom: 0.8%;
 }
 .todo{
   width: 95%;

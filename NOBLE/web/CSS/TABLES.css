@@ -1,7 +1,7 @@
 body{
   margin: 0;
   font-family: sans-serif;
-  background: white;
+  background-image: url("MEDIEVAL.jpg");
   font-size: 16px;
   color: #06192e;
 }
@@ -9,6 +9,24 @@ h1{
   color: #06192e;
   text-align: center;
 }
+
+.tablas{
+    margin-left: 16.5%;
+    margin-top: 2%;
+    border-top-left-radius:   7px;
+    border-top-right-radius:   7px;
+    border-bottom-left-radius:  7px;
+    border-bottom-right-radius:  7px;
+    background-color: white;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    padding-bottom: 0.8%;
+    padding-top: 0.2%;
+    width: 900px;
+    text-align: center;
+}
+
+
 
 p{
   text-align: center;
@@ -23,8 +41,11 @@ table, th, td{
 td{
   text-align: center;
 }
-th, td{
+ td{
   padding: 10px;
+}
+th{
+    padding: 2px;
 }
 
 th{

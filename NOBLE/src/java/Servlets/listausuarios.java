@@ -47,11 +47,12 @@ public class listausuarios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             out.println("<link rel=\"stylesheet\" href=\"CSS/TABLES.css\">");
-            out.println("<br><h1> ¡Hola Administrador! </h1>");
+            out.println("<div class='tablas'>");
+            out.println("<h1> ¡Hola Administrador! </h1>");
             
             List<Datos> lista = Consultas.getAllEmpleados();
-            
-            out.println("<table align='center'>");
+         
+            out.println("<table align='center' style='width: 900px'>");
             out.println("<tr>"
                     + "<th> ID </th>"
                     + "<th> Nombre </th>"
@@ -67,12 +68,13 @@ public class listausuarios extends HttpServlet {
                         + "<td>"+e.getNombre()+"</td>"
                         + "<td>"+e.getCorreo()+"</td>"
                         + "<td>"+e.getUsuario()+"</td>"
-                        + "<td>"+e.getContrasena()+"</td>" 
+                        + "<td>********</td>" 
                         + "<td><a href='Actualizar?id="+e.getId()+"'>Editar</a></td>"
                         + "<td><a href='Borrar?id1="+e.getId()+" '>Borrar</a></td>"        
                         + "</tr>");
             }
             out.println("</table>");
+            out.println("</div>");
             out.close();
         }
     }
