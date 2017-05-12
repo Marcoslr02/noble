@@ -23,7 +23,7 @@
             </div>
         </header>
 
-        <iframe src="noble.jsp" name="frame" id="frame" class="frame" width="100%" height="84%"></iframe>
+        <iframe src="noble.jsp" name="frame" id="frame" class="frame" width="100%" height="90%"></iframe>
 
     </body>
 </html>

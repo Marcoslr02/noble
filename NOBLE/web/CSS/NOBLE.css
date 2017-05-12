@@ -1,7 +1,8 @@
 body{
-    background-image: url("IMAGES/Wall.jpg");
+    background-image: url("MEDIEVAL.jpg");
     font-family: sans-serif;
     color: #06192e;
+    padding-top: 1%;
 }
 .linea{
     background: #06192e;
@@ -10,7 +11,37 @@ body{
 .logout{
     text-align: left;
 }
+.informacion{
+    background-color: white;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;    
+    padding-left: 0.7%;
+    padding-right: 0.7%;
+    padding-bottom: 0.7%;
+}
 
+.botones{
+    border-bottom-left-radius:  7px;
+    border-bottom-right-radius:  7px;
+    background-color: white;
+    padding-left: 0.7%;
+    padding-right: 0.7%;
+    padding-bottom: 0.7%;
+}
+.todo{
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  border-radius: 7px;
+  border:  #06192e;
+}
+.contenedor{
+  padding: 10px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 .boton {
     background-color: #4CAF50; 

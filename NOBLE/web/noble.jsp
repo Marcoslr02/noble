@@ -44,7 +44,7 @@
             
         </table>
   
-        <table align="center" style="width: 900px;">
+        <table class="botones" align="center" style="width: 900px;">
             <tr>
                 <td>
                     <input type="button" class="boton1 boton"  onClick="location.href = 'registrar.jsp' " value="Registrarse">

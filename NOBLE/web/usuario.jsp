@@ -13,8 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-            
-        <table align="center" style="width: 900px">
+     
+        <table class="informacion" align="center" style="width: 900px">
             <tr>
                 <td><a href="Configurar"><img src="IMAGES/config.png" width="50px" height="50px"></a></td>
                  <td align="right"><img src="IMAGES/logout.png" width="40px" height="40px"></td>
@@ -51,6 +51,7 @@ Para la mala suerte del malvado y para desgracia del noble la víctima fue su es
                 </td>
             </tr>
             
-        </table>
+        </table
+     
     </body>
 </html>
