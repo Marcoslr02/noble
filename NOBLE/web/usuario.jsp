@@ -34,12 +34,10 @@
                 <th  class="linea" colspan="2"></th>
             </tr>
 
-            <tr>
-                <th  class="info" colspan="4">
-                    <p>A las afueras de ese reino habitaba otro alquimista, pero este era un hombre egoísta y siempre experimentaba con fines malvados y oscuros. Este oscuro alquimista envidiaba y odiaba al noble Alki, así que un día salió de su terrorífico castillo y en la densa y negra noche se introdujo en el castillo del noble sin que nadie lo pudiera notar, con una sustancia transparente contamino una de las copas, esperando a que fuera la del noble. 
-Para la mala suerte del malvado y para desgracia del noble la víctima fue su esposa, la cual cae en cama, sin saber las causas de esa extraña enfermedad, el noble trabajo día y noche experimentando y buscando algún remedio, combinando todas las sustancias que conocía, y haciendo pruebas, pero nada funcionaba, nada lograba que su esposa mejorara; al haber intentado todo y casi al borde de la desesperación, el noble Alki, encontró, sin embargo, un antiguo texto  que tenía conocimiento de una  teoría, incluso quizás solo una leyenda, pero con tal de salvar a su esposa, acude a la última oportunidad. Se trata del elixir de la vida/piedra filosofal, la cura a cualquier problema.
-</p>
-                </th>
+            <tr style="height: 400px">
+                <td colspan="2" >
+                    <iframe  src="texto/index.html" name="frame" id="frame" width="100%" height="90%"></iframe>
+                </td>
             </tr>
             
         </table>
@@ -47,7 +45,7 @@ Para la mala suerte del malvado y para desgracia del noble la víctima fue su es
         <table class="botones" align="center" style="width: 900px;">
             <tr>
                 <td colspan="2">
-                    <input type="button" class="boton1 boton" onClick="location.href = 'j/index.html' " value="Jugar capaña">
+                    <input type="button" class="boton1 boton" onClick="location.href = 'prueba/index.html' " value="Jugar capaña">
                 </td>
             </tr>
             
