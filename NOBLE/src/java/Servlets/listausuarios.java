@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,6 +46,12 @@ public class listausuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession objse = request.getSession(false);  
+        String usuario = (String)objse.getAttribute("usuario");
+        if(usuario!="admin"){
+            response.sendRedirect("login.jsp");
+        }
+        else{
         try (PrintWriter out = response.getWriter()) {
             out.println("<link rel=\"stylesheet\" href=\"CSS/TABLES.css\">");
             out.println("<div class='tablas'>");
@@ -76,6 +83,7 @@ public class listausuarios extends HttpServlet {
             out.println("</table>");
             out.println("</div>");
             out.close();
+        }
         }
     }
 

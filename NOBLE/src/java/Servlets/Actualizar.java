@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -46,6 +47,12 @@ public class Actualizar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            HttpSession objse = request.getSession(false);  
+        String usuario = (String)objse.getAttribute("usuario");
+        if(usuario!="admin"){
+            response.sendRedirect("login.jsp");
+        }
+        else{
             out.println("<script language=\"JavaScript\" type=\"text/javascript\" src=\"JS/validar.js\"></script>");
             out.println("<link rel=\"stylesheet\" href=\"CSS/Formi.css\">");
             String esid = request.getParameter("id");
@@ -69,6 +76,7 @@ public class Actualizar extends HttpServlet {
             out.println("</div>");
             out.println("</form>");
             out.close();
+        }
         }
     }
 

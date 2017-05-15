@@ -8,6 +8,7 @@ HttpSession sesion = request.getSession();
 sesion.setAttribute("usuario","");
 sesion.invalidate();
 response.sendRedirect("noble.jsp");
+
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

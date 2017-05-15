@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,12 +46,19 @@ public class Borrar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            HttpSession objse = request.getSession(false);  
+        String usuario = (String)objse.getAttribute("usuario");
+        if(usuario!="admin"){
+            response.sendRedirect("login.jsp");
+        }
+        else{
             String eseid=request.getParameter("id1");
             int id = Integer.parseInt(eseid);
             System.out.println(id);
             Consultas.Borrar(id);
             response.sendRedirect("listausuarios");
             out.println("</html>");
+        }
         }
     }
 
