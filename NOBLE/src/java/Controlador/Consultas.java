@@ -397,5 +397,86 @@ public static Connection getConnection(){
        return false;
         
     }
-    
+    //-------------------------------------------------------
+     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean sololetras(String nombre){
+        String noPermitidas="123456789☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓Ì←∟↔▲▼ !#$•&()*+,-./:;<=>?@[\\]^_`{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤­ÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´­±‗¾¶§÷¸°¨·¹³²■ ";
+        String palabra=nombre;
+        char no[]=noPermitidas.toCharArray();
+        char leerpalabra[]=palabra.toCharArray();
+        try{
+            if(palabra != null){
+                System.out.println("no es null");
+                for (int i = 0; i < leerpalabra.length; i++) {
+                    for (int j = 0; j < no.length; j++) {
+                        if(leerpalabra[i]==no[j]){
+                            System.out.println("algo no esta en el alfabeto");
+                            System.out.println(leerpalabra[i]);
+                            System.out.println(no[j]);
+                            System.out.println(i);
+                            System.out.println(j);
+                            return false;
+                        }
+                    }
+                }
+            }
+            System.out.println("tdo es del alfabeto");
+        } catch(Exception e){
+        }
+        return true;
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean correo(String correo){
+        String noPermitidas="☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓Ì←∟↔▲▼ !#$•&()*+,/:;<=>?[]^`{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤­ÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´±‗¾¶§÷¸°¨·¹³²■ ";
+        String palabra=correo;
+        char no[]=noPermitidas.toCharArray();
+        char leerpalabra[]=palabra.toCharArray();
+        try{
+            if(palabra != null){
+                System.out.println("no es null");
+                for (int i = 0; i < leerpalabra.length; i++) {
+                    for (int j = 0; j < no.length; j++) {
+                        if(leerpalabra[i]==no[j]){
+                            System.out.println("un caracter es invalido en el correo");
+                            System.out.println(leerpalabra[i]);
+                            System.out.println(no[j]);
+                            System.out.println(i);
+                            System.out.println(j);
+                            return false;
+                        }
+                    }
+                }
+            }
+            System.out.println("todo es valido en el correo");
+        }catch(Exception e){
+        }
+        return true;
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean sololetrasNum(String usuario,String password){
+        String noPermitidas="@☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓Ì←∟↔▲▼ !#$•&()*+,/:;<=>?[]^`{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤­ÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´±‗¾¶§÷¸°¨·¹³²■ ";
+        String palabra=usuario;
+        char no[]=noPermitidas.toCharArray();
+        char leerpalabra[]=palabra.toCharArray();
+        try{
+            if(palabra != null){
+                System.out.println("no es null");
+                for (int i = 0; i < leerpalabra.length; i++) {
+                    for (int j = 0; j < no.length; j++) {
+                        if(leerpalabra[i]==no[j]){
+                            System.out.println("un caracter es invalido en el usuario o contraseña");
+                            System.out.println(leerpalabra[i]);
+                            System.out.println(no[j]);
+                            System.out.println(i);
+                            System.out.println(j);
+                            return false;
+                        }
+                    }
+                }
+            }
+            System.out.println("todo es valido en el usuario o contraseña");
+        }catch(Exception e){
+        }
+        return true;
+    }
 }

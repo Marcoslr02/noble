@@ -56,37 +56,66 @@ Consultas co = new Consultas();
         */
         co.getConnection();
         try {
-            if(co.validarCorreo(correo)){
-                response.sendRedirect("registrar.jsp");
-                System.out.println("El correo ya esta registrado");
-            }else{
-                if(co.validarUsuario(usuario)){
-                    response.sendRedirect("registrar.jsp");
-                    System.out.println("El usuario ya esta registrado");
-                    
-                }else{
-                    if(co.IngresarPartida()){
-                        if(co.InsertarPersona(correo, nombre, appat, apmat, nac, genero, pais, estado)){
-                            if(co.InsertaUsuario(usuario, password)){
-                                response.sendRedirect("login.jsp");
+            System.out.println("entro en el try");
+            if(co.sololetras(nombre)){
+                System.out.println("nombre correcto");
+                if(co.sololetras(appat)){
+                    System.out.println("paterno correcto");
+                    if(co.sololetras(apmat)){
+                        System.out.println("materno correcto");
+                        if(co.correo(correo)){
+                            System.out.println("correo correcto");
+                            if(co.sololetrasNum(usuario, password)){
+                                System.out.println("usuario y contraseña correcto");
+                                try{
+                                    if(co.validarCorreo(correo)){
+                                        System.out.println("correo con registro previo");
+                                        response.sendRedirect("registrar.jsp");
+                                    }else{
+                                        System.out.println("correo sin registro previo");
+                                        if(co.validarUsuario(usuario) || usuario=="admin"){
+                                            System.out.println("usuario con registro previo");
+                                            response.sendRedirect("registrar.jsp");
+                                        }else{
+                                            if(co.IngresarPartida()){
+                                                if(co.InsertarPersona(correo, nombre, appat, apmat, nac, genero, pais, estado)){
+                                                    if(co.InsertaUsuario(usuario, password)){
+                                                        response.sendRedirect("login.jsp");
+                                                        
+                                                    }else{
+                                                        response.sendRedirect("errores/pagRota.jsp");
+                                                    }
+                                                }else{
+                                                    response.sendRedirect("errores/pagRota.jsp");
+                                                }
+                                            }else{
+                                            response.sendRedirect("errores/pagRota.jsp");
+                                            }
+                                        }
+                                    }
+                                }catch(Exception e) {
+                                }
                             }else{
-                                response.sendRedirect("registrar.jsp");
-                                System.out.println("ocurrio un problema al registrar al usuario");
+                                System.out.println("usuario y contraseña incorrecto");
+                                response.sendRedirect("errores/errorCaracteres.jsp");
                             }
                         }else{
-                            response.sendRedirect("registrar.jsp");
-                            System.out.println("ocurrio un problema al registrar a la persona");
+                            System.out.println("correo incorrecto");
+                            response.sendRedirect("errores/errorCaracteres.jsp");
                         }
+                    }else{
+                        System.out.println("materno incorrecto");
+                        response.sendRedirect("errores/errorCaracteres.jsp");
                     }
-                    else{
-                        response.sendRedirect("registrar.jsp");
-                        System.out.println("ocurrio un problema al crear la partida");
-                    }
+                }else{
+                    System.out.println("paterno incorrecto");
+                    response.sendRedirect("errores/errorCaracteres.jsp");
                 }
-                
+            }else{
+                System.out.println("nombre incorrecto");
+                response.sendRedirect("errores/errorCaracteres.jsp");
             }
         }catch(Exception e) {
-            System.out.println("salio del try");
         }
         System.out.println("si no menciona nada del tri es que paso olimpicamente de el (T_T)");
     }

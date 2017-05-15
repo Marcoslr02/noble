@@ -18,7 +18,7 @@ function validarletynum(e){
 function validarlet(e){
   var teclad =(document.all) ? e.keyCode: e.which;
   if(teclad===8) return true;
-  var patron = /[a-zA-Z]/;
+  var patron = /[a-zA-ZnÑ]/;
   tec=String.fromCharCode(teclad);
   return patron.test(tec);            
 }

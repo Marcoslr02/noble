@@ -73,34 +73,49 @@ public class Configurar2 extends HttpServlet {
             e = Consultas.getUsuarioById(id);
             Consultas co = new Consultas();
             co.getConnection();
-            try {
-                if(co.validarUsuario(usuario) && e.getUsuario()==usuario){
-                    out.println("<h1>ya existe el usuario</h1>");
-                }else{
-                    if(co.validarCorreo(correo) && e.getCorreo()==correo){
-                        System.out.println("<h1>ya existe el correo</h1>");
+            try{
+                if(co.sololetras(nombre)){
+                    if(co.correo(correo)){
+                        if(co.sololetrasNum(usuario, contrasena)){
+                            try {
+                                if(co.validarUsuario(usuario) && e.getUsuario()==usuario){
+                                    response.sendRedirect("Configurar.java");
+                                }else{
+                                    if(co.validarCorreo(correo) && e.getCorreo()==correo){
+                                        response.sendRedirect("Configurar.java");
+                                    }else{
+                                        e.setId(id);
+                                        e.setNombre(nombre);
+                                        e.setCorreo(correo);
+                                        e.setUsuario(usuario);
+                                        e.setContrasena(contrasena);
+
+                                        int estado = Consultas.Actualizar(e);
+
+                                        if (estado>0) {
+                                            HttpSession objse = request.getSession(true);
+                                            objse.setAttribute("usuario", usuario);
+                                            response.sendRedirect("usuario.jsp");
+                                        }
+                                        else{
+                                            response.sendRedirect("errores/pagRota.jsp");
+                                        }
+                                    }
+                                }
+                            } catch (SQLException ex) {
+                                    Logger.getLogger(Configurar2.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }else{
+                            response.sendRedirect("errores/errorCaracteres.jsp");
+                        }
                     }else{
-                        
-                        e.setId(id);
-                        e.setNombre(nombre);
-                        e.setCorreo(correo);
-                        e.setUsuario(usuario);
-                        e.setContrasena(contrasena);
-
-                        int estado = Consultas.Actualizar(e);
-
-                        if (estado>0) {
-                            HttpSession objse = request.getSession(true);
-                            objse.setAttribute("usuario", usuario);
-                            response.sendRedirect("usuario.jsp");
-                        }
-                        else{
-                            out.println("<h1> No se pudo actualizar. </h1>");
-                        }
+                        response.sendRedirect("errores/errorCaracteres.jsp");
                     }
+                }else{
+                    response.sendRedirect("errores/errorCaracteres.jsp");
                 }
-            } catch (SQLException ex) {
-                    Logger.getLogger(Configurar2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finally{
             }
         }
     }

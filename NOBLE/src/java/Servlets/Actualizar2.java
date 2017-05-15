@@ -67,7 +67,7 @@ public class Actualizar2 extends HttpServlet {
             response.sendRedirect("login.jsp");
         }else{
         try (PrintWriter out = response.getWriter()) {
-            int id;
+           int id;
             Datos e = new Datos();
             Consultas co = new Consultas();
             co.getConnection();
@@ -78,32 +78,45 @@ public class Actualizar2 extends HttpServlet {
             correo = request.getParameter("correo2");
             usuario = request.getParameter("usuario2");
             contrasena= request.getParameter("contrasena2");
-            try {
-                if(co.validarUsuario(usuario) && e.getUsuario()==usuario){
-                    out.println("<h1>ya existe el usuario</h1>");
-                }else{
-                    if(co.validarCorreo(correo) && e.getCorreo()==correo){
-                         out.println("<h1>ya existe el correo</h1>");
-                         System.out.println(e.getCorreo());
-                         System.out.println(correo);
+            try{
+                if(co.sololetras(nombre)){
+                    if(co.correo(correo)){
+                        if(co.sololetrasNum(usuario, contrasena)){
+                            try {
+                                if(co.validarUsuario(usuario) && e.getUsuario()==usuario){
+                                    response.sendRedirect("Actualizar.java");
+                                }else{
+                                    if(co.validarCorreo(correo) && e.getCorreo()==correo){
+                                        response.sendRedirect("Actualizar.java");
+                                    }else{
+                                        e.setId(id);
+                                        e.setNombre(nombre);
+                                        e.setCorreo(correo);
+                                        e.setUsuario(usuario);
+                                        e.setContrasena(contrasena);
+                                        int estado = Consultas.Actualizar(e);
+                                        if (estado>0) {
+                                            response.sendRedirect("listausuarios");
+                                        }
+                                        else{
+                                            response.sendRedirect("errores/pagRota.jsp");
+                                        }
+                                    }
+                                }
+                            }catch (SQLException ex) {
+                                 Logger.getLogger(Actualizar2.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }else{
+                            response.sendRedirect("errores/errorCaracteres.jsp");
+                        }
                     }else{
-                        
-                        e.setId(id);
-                        e.setNombre(nombre);
-                        e.setCorreo(correo);
-                        e.setUsuario(usuario);
-                        e.setContrasena(contrasena);
-                        int estado = Consultas.Actualizar(e);
-                        if (estado>0) {
-                            response.sendRedirect("listausuarios");
-                        }
-                        else{
-                            out.println("<h1> No se pudo actualizar. </h1>");
-                        }
+                        response.sendRedirect("errores/errorCaracteres.jsp");
                     }
+                }else{
+                    response.sendRedirect("errores/errorCaracteres.jsp");
                 }
-            } catch (SQLException ex) {
-                 Logger.getLogger(Actualizar2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finally{
             }
         }
         }
