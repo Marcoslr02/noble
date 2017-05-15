@@ -47,9 +47,14 @@ public class Configurar extends HttpServlet {
        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            HttpSession objse = request.getSession(false);  
+            if(objse.getAttribute("usuario") == null){
+                response.sendRedirect("login.jsp");
+            }
+            else{
             out.println("<script language=\"JavaScript\" type=\"text/javascript\" src=\"JS/validar.js\"></script>");
             out.println("<link rel=\"stylesheet\" href=\"CSS/Formi.css\">");
-            HttpSession objse = request.getSession(false);
+            
             String usuario = (String)objse.getAttribute("usuario");
             Datos e = Consultas.getUsuarioByUsuario(usuario);
             
@@ -70,6 +75,7 @@ public class Configurar extends HttpServlet {
             out.println("</div>");
             out.println("</form>");
             out.close();
+        }
         }
     }
 

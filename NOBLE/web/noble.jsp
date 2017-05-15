@@ -4,6 +4,11 @@
     Author     : CECyT9
 --%>
 
+<% if(session.getAttribute("usuario") != null){
+   response.sendRedirect("usuario.jsp");
+}
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

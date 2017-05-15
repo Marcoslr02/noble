@@ -38,6 +38,8 @@ public class Ingresar extends HttpServlet {
         String password = request.getParameter("password");
         Consultas co = new Consultas();
         if(usuario.equals("admin") && password.equals("admin")){
+            HttpSession objse = request.getSession(true);
+            objse.setAttribute("usuario", usuario);
             response.sendRedirect("listausuarios");
         }
         else{

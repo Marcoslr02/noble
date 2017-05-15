@@ -5,6 +5,8 @@
     Author     : CECyT9
 --%>
 
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,8 @@
         <header class="header2">
             <div class="wrapper">
                 <div class="logo">
-                    <a href="noble.jsp" target="frame"><img src="IMAGES/NOBLE.png" width="300px" height="90px"></a>
+                    
+                    <img src="IMAGES/NOBLE.png" width="300px" height="90px">
                 </div>
             </div>
         </header>

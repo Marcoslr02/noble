@@ -4,6 +4,9 @@
     Author     : Héctor
 --%>
 
+<% if(session.getAttribute("usuario") == null){
+   response.sendRedirect("login.jsp");
+}%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +20,7 @@
         <table class="botones1" align="center" style="width: 900px">
             <tr>
                 <td> <br><a href="Configurar"><img src="IMAGES/config.png" width="50px" height="50px"></a></td>
-                <td align="right"><br><img src="IMAGES/logout.png" width="40px" height="40px"></td>
+                <td align="right"><br> <a href="logout.jsp"><img src="IMAGES/logout.png" width="40px" height="40px" ></a></td>
              </tr>
             </table>
          <table class="botones2" align="center" style="width: 900px">
@@ -45,7 +48,7 @@
         <table class="botones" align="center" style="width: 900px;">
             <tr>
                 <td colspan="2">
-                    <input type="button" class="boton1 boton" onClick="location.href = 'prueba/index.html' " value="Jugar capaña">
+                    <input type="button" class="boton1 boton" onClick="location.href = 'SesionJuego.jsp' " value="Jugar capaña">
                 </td>
             </tr>
             
