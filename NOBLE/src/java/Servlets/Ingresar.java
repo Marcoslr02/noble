@@ -37,7 +37,7 @@ public class Ingresar extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
         Consultas co = new Consultas();
-        if(usuario.equals("admin") && password.equals("admin")){
+        if(usuario.equals("coffeekkot") && password.equals("coffeekkotmango")){
             HttpSession objse = request.getSession(true);
             objse.setAttribute("usuario", usuario);
             response.sendRedirect("listausuarios");
